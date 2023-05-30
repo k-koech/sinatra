@@ -17,6 +17,9 @@ export default function Navbar()
           <Link to="/" class="nav-link active" aria-current="page" >Home</Link>
         </li>
         <li class="nav-item">
+          <Link to="/addblog" class="nav-link active" >Add Blog</Link>
+        </li>
+        <li class="nav-item">
           <Link to="/search" class="nav-link active" >Search</Link>
         </li>
         <li class="nav-item dropdown">
