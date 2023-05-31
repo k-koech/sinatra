@@ -6,6 +6,9 @@ class CreateUsers < ActiveRecord::Migration[6.1]
       t.string :id_number
       t.string :password_digest
 
+      # t.boolean :is_staff, :default=>0
+      # t.boolean :is_admin, :default=>0
+
       t.timestamps    
     end
   end
