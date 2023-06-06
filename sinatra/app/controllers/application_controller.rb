@@ -1,11 +1,13 @@
 class ApplicationController < Sinatra::Base
+    set :default_content_type, 'application/json'
+
     set :session =>true
 
     use Rack::Session::Cookie,
     expire_after: 3600
 
 
-    # Authorize
+    # Authorize 
     def authorize
        if session[:user_id].blank?
         puts "Authorize called"

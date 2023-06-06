@@ -2,11 +2,12 @@ class SessionController < ApplicationController
 
 
     post "/auth/login" do
-        username=params[:username]
+        username=params['username']
         password=params[:password]
-    
+        #  puts "XXXy"
        
-        if(username.present? &&  password.present? )
+        # puts password
+        if(username.present? && password.present? )
             user = User.find_by(username: username)
 
             if (user && user.authenticate(password))

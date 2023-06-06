@@ -54,7 +54,7 @@ class UsersController < ApplicationController
        user = User.find_by(id: session[:user_id])
        
        if user
-          {:user => user}.to_json
+          {:currentUser => user}.to_json
        else
             message = {:error=> "Not logged in"}
             message.to_json

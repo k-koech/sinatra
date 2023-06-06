@@ -1,20 +1,40 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import blog2 from "../images/blog2.jpg"
-export default function Blog() {
+import { useParams } from 'react-router-dom'
+import { PostContext } from '../context/PostContext'
+import { AuthContext } from '../context/AuthContext'
+export default function Blog() 
+{
+  const {posts, deletePost} = useContext(PostContext)
+  const {current_user} = useContext(AuthContext)
+
+  const {id} = useParams()
+  const singlePost = posts && posts.find(post =>(
+    post.id==id
+  ))
+
+  console.log(singlePost)
+
+
   return (
     <div className='container mx-auto'>
-        <h4>Title</h4>
+        <h4>{singlePost && singlePost.title}</h4>
         <div className='row gx-5'>
             <div className='col-lg-8 bg-light'>
               <img src={blog2} className='img-fluid' alt='image' />
              
               <div className='d-flex mt-4 gap-5 '>
-                <p>Author: Baruch</p>
-                <p>Date posted: 24th May 2023</p>
-
-              </div>
+                <p>Author: {singlePost && singlePost.user.username}</p>
+                <p>Date posted: {singlePost && singlePost.created_at }</p>             
+                {current_user && current_user.username==singlePost.user.username?
+                <>
+                <button className='btn btn-success btn-sm'>Edit</button>
+                <button onClick={()=>deletePost(singlePost.id)} className='btn btn-danger btn-sm'>Delete</button>
+                </>:""
+                }
+                </div>
               <p className='mt-3'>
-                 Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publ
+              {singlePost && singlePost.content}
                 </p>
             </div>
 
