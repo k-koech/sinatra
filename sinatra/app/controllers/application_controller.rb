@@ -6,7 +6,10 @@ class ApplicationController < Sinatra::Base
     set :session =>true
 
     use Rack::Session::Cookie,
-    expire_after: 3600
+    key: 'myapp_session',
+    expire_after: 3600, # 1 hour in seconds
+    secret: 'myapp_secret_key'
+
 
 
     # Authorize 
