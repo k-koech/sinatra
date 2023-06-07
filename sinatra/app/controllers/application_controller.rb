@@ -1,9 +1,10 @@
 class ApplicationController < Sinatra::Base
-    # set :database, { adapter: "sqlite3", database: "/db/database.db" }
+    # set :database, { adapter: "sqlite3", database: "/db/database.sqlite3" }
 
     set :default_content_type, 'application/json'
-
     set :session =>true
+
+    
 
     use Rack::Session::Cookie,
     key: 'myapp_session',
