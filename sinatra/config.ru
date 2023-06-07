@@ -1,4 +1,5 @@
 require 'bundler/setup'
+require 'sinatra/activerecord'
 
 require_relative "./config/environment"
 
