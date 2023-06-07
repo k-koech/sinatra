@@ -1,4 +1,6 @@
 class ApplicationController < Sinatra::Base
+    # set :database, { adapter: "sqlite3", database: "/db/database.db" }
+
     set :default_content_type, 'application/json'
 
     set :session =>true
