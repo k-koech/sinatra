@@ -1,5 +1,15 @@
 require 'bundler/setup'
+# require 'sqlite3'
+
 require_relative "./config/environment"
+
+configure do
+  set :database, {
+    adapter: 'sqlite3',
+    database: 'db/development.sqlite3'
+  }
+end
+
 
 # Allow CORS (Cross-Origin Resource Sharing) requests
 use Rack::Cors do

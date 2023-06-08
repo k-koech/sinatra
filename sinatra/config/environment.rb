@@ -16,5 +16,6 @@ configure do
     }
   end
 
+  
 # Require in all files in 'app' directory
 require_all 'app'
